@@ -175,25 +175,25 @@ plotting <- function(regression, intercept,expName,plateQuadrant,errorInfo){
 	
 	#graphs the calculated regression curve
 	plot(regression, 
-		main=filename, 					#title of graph
-		ylab="% Activity", 				#title of y axis
+		main=filename, 				  	    #title of graph
+		ylab="% Activity", 				    #title of y axis
 		xlab="log[inhibitor] (M)", 		#title of x axis
-		col="red4", 					#color of line
-		ylim=range(0,100),				#range of y axis
+		col="red4", 					        #color of line
+		ylim=range(0,100),				    #range of y axis
 		xlim=range(10e-10,10e-5), 		#range of x axis
-		axes=F )						#doesn't draw axes
+		axes=F )					          	#doesn't draw axes
 	#draws custom x axis
-	axis(1, 							#places x axis		
-		at=as.numeric(concVec),			#where ticks go 
-		labels=concVec, 				#text for labels
-		las=1,							#sets tick labels horizontal
-		#cex.axis=0.8					#shrink tick labels to 80%
+	axis(1, 							          #places x axis		
+		at=as.numeric(concVec),		  	#where ticks go 
+		labels=concVec, 			       	#text for labels
+		las=1,					          		#sets tick labels horizontal
+		#cex.axis=0.8				        	#shrink tick labels to 80%
 		)
 	#draws custom y axis
-	axis(2, 							#places y axis
-		at=c(0,20,40,60,80,100), 		#where ticks go
+	axis(2, 							          #places y axis
+		at=c(0,20,40,60,80,100), 		  #where ticks go
 		labels=c(0,20,40,60,80,100), 	#tick labels
-		las=1,							#sets tick labels horizontal
+		las=1,					          		#sets tick labels horizontal
 		)
 	#graphs EC50 point
 	points( intercept,					# x coord of point
@@ -232,18 +232,18 @@ plotting <- function(regression, intercept,expName,plateQuadrant,errorInfo){
 	for(i in 1:length(avgs)){
 		#prints error bar above point
 		arrows( concVec[i], 			# start x coord
-				avgs[i], 				# start y coord
-				concVec[i], 			# end x coord
+				avgs[i], 			      	# start y coord
+				concVec[i], 		    	# end x coord
 				avgs[i]+stdevs[i], 		# end y coord
-				angle=90, 				# angle of end cap
-				length=0.03)			# length of end cap
+				angle=90, 			    	# angle of end cap
+				length=0.03)		    	# length of end cap
 		#prints error bar below point
 		arrows( concVec[i], 			# start x coord
-				avgs[i], 				# start y coord
-				concVec[i], 			# end x coord
+				avgs[i], 			      	# start y coord
+				concVec[i], 	    		# end x coord
 				avgs[i]-stdevs[i], 		# end y coord
-				angle=90, 				# angle of end cap
-				length=0.03)			# length of end cap
+				angle=90, 			    	# angle of end cap
+				length=0.03)		    	# length of end cap
 	}
 	
 	#turns off graphics device
