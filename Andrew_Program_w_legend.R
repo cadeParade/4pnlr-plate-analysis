@@ -21,8 +21,8 @@ library(drc)
 ##### DIFFERENT CONCENTRATIONS	#####
 concVec <- c("10e-10","10e-9","10e-8","10e-7","10e-6","10e-5")
 
-########### CHANGE THIS FILE LOCATION 	###############
-########### TO WHERE YOUR EXPERIMENTAL  ###############
+########### CHANGE THIS FILE LOCATION 		###############
+########### TO WHERE YOUR EXPERIMENTAL  	###############
 ########### EXCEL FILES ARE. 			###############
 ########### for windows,     			###############
 ########### the "/" is "\"  			###############
@@ -175,31 +175,31 @@ plotting <- function(regression, intercept,expName,plateQuadrant,errorInfo){
 	
 	#graphs the calculated regression curve
 	plot(regression, 
-		main=filename, 				  	    #title of graph
-		ylab="% Activity", 				    #title of y axis
-		xlab="log[inhibitor] (M)", 		#title of x axis
-		col="red4", 					        #color of line
-		ylim=range(0,100),				    #range of y axis
-		xlim=range(10e-10,10e-5), 		#range of x axis
-		axes=F )					          	#doesn't draw axes
+		main=filename, 			#title of graph
+		ylab="% Activity", 		#title of y axis
+		xlab="log[inhibitor] (M)", 	#title of x axis
+		col="red4", 			#color of line
+		ylim=range(0,100),		#range of y axis
+		xlim=range(10e-10,10e-5), 	#range of x axis
+		axes=F )			#doesn't draw axes
 	#draws custom x axis
-	axis(1, 							          #places x axis		
-		at=as.numeric(concVec),		  	#where ticks go 
-		labels=concVec, 			       	#text for labels
-		las=1,					          		#sets tick labels horizontal
-		#cex.axis=0.8				        	#shrink tick labels to 80%
+	axis(1, 				#places x axis		
+		at=as.numeric(concVec),		#where ticks go 
+		labels=concVec, 		#text for labels
+		las=1,				#sets tick labels horizontal
+		#cex.axis=0.8			#shrink tick labels to 80%
 		)
 	#draws custom y axis
-	axis(2, 							          #places y axis
-		at=c(0,20,40,60,80,100), 		  #where ticks go
+	axis(2, 				#places y axis
+		at=c(0,20,40,60,80,100), 	#where ticks go
 		labels=c(0,20,40,60,80,100), 	#tick labels
-		las=1,					          		#sets tick labels horizontal
+		las=1,				#sets tick labels horizontal
 		)
 	#graphs EC50 point
-	points( intercept,					# x coord of point
-			50, 						# y coord of point
-			pch=18, 					# assigns triangle symbol
-			col="blue",					# assigns blue color
+	points( intercept,			# x coord of point
+			50, 			# y coord of point
+			pch=18, 		# assigns triangle symbol
+			col="blue",		# assigns blue color
 			cex=2)
 	
 	#rounds intercept to 4 digits
@@ -208,17 +208,17 @@ plotting <- function(regression, intercept,expName,plateQuadrant,errorInfo){
 	#displays text at coordinates (intercept, 50)
 	#the complicated code is to get the subscript "50"
 	#text(intercept, 50,					#coordinates of text 
-	#	substitute(EC[50]~"="~inter, 	#lays out which text to display
-	#	list(inter=roundIntercept)), 	#plugs in number to intercept
+	#	substitute(EC[50]~"="~inter, 			#lays out which text to display
+	#	list(inter=roundIntercept)), 			#plugs in number to intercept
 	#	adj=c(1.1,0.5), 				#moves text a little down and to the left
-	#	cex=0.8)						#makes size of text 20% smaller
+	#	cex=0.8)					#makes size of text 20% smaller
 	
 	#sets up legend
-	legend(0.000003, 101,				#x and y coords 
+	legend(0.000003, 101,			#x and y coords 
 		substitute(EC[50]~"="~inter,	#displays text and value
 		list(inter=roundIntercept)),
-		pch=18,							#displays triangle
-		col="blue")						#makes triangle blue
+		pch=18,				#displays triangle
+		col="blue")			#makes triangle blue
 		
 		
 
@@ -232,18 +232,18 @@ plotting <- function(regression, intercept,expName,plateQuadrant,errorInfo){
 	for(i in 1:length(avgs)){
 		#prints error bar above point
 		arrows( concVec[i], 			# start x coord
-				avgs[i], 			      	# start y coord
-				concVec[i], 		    	# end x coord
-				avgs[i]+stdevs[i], 		# end y coord
-				angle=90, 			    	# angle of end cap
-				length=0.03)		    	# length of end cap
+				avgs[i], 		# start y coord
+				concVec[i], 		# end x coord
+				avgs[i]+stdevs[i], 	# end y coord
+				angle=90, 		# angle of end cap
+				length=0.03)		# length of end cap
 		#prints error bar below point
 		arrows( concVec[i], 			# start x coord
-				avgs[i], 			      	# start y coord
-				concVec[i], 	    		# end x coord
-				avgs[i]-stdevs[i], 		# end y coord
-				angle=90, 			    	# angle of end cap
-				length=0.03)		    	# length of end cap
+				avgs[i], 		# start y coord
+				concVec[i], 	    	# end x coord
+				avgs[i]-stdevs[i], 	# end y coord
+				angle=90, 		# angle of end cap
+				length=0.03)		# length of end cap
 	}
 	
 	#turns off graphics device
