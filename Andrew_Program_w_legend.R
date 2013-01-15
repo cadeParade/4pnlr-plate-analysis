@@ -214,11 +214,11 @@ plotting <- function(regression, intercept,expName,plateQuadrant,errorInfo){
 	#	cex=0.8)					#makes size of text 20% smaller
 	
 	#sets up legend
-	legend(0.000003, 101,			#x and y coords 
-		substitute(EC[50]~"="~inter,	#displays text and value
+	legend(0.000003, 101,					#x and y coords 
+		substitute(EC[50]~"="~inter,			#displays text and value
 		list(inter=roundIntercept)),
-		pch=18,				#displays triangle
-		col="blue")			#makes triangle blue
+		pch=18,						#displays triangle
+		col="blue")					#makes triangle blue
 		
 		
 
