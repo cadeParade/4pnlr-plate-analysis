@@ -8,4 +8,4 @@ To run the program, the items at the top of the code need to be changed, especia
 In the data folder are test data (though the files are copies of each other). If the program works correctly, you should have 12 pdfs in the folder specified pdfSaveDirectory, each graphing a quarter of the plate. Each quarter's graph will be labeled with the xls file name and A-D. An example graph would look like this: 
 
 
-![](http://imgur.com/Sqskq)
+![](http://i.imgur.com/Sqskq.png)
